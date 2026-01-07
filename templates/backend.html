@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix RecSys - Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/backend.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="brand">RecSys Admin</div>
+            <nav>
+                <a href="#" class="active"><i class="fas fa-home"></i> Overview</a>
+                <a href="/"><i class="fas fa-external-link-alt"></i> View App</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header>
+                <h1>Dashboard Overview</h1>
+                <button class="refresh-btn" onclick="fetchData()"><i class="fas fa-sync"></i> Refresh</button>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Users</h3>
+                    <div class="value" id="stat-users">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Interactions</h3>
+                    <div class="value" id="stat-interactions">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Watch Time (m)</h3>
+                    <div class="value" id="stat-time">-</div>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Top Genres Watched</h3>
+                    <canvas id="genreChart"></canvas>
+                </div>
+                <!-- Placeholder for future charts -->
+            </div>
+
+            <div class="tables-grid">
+                <div class="table-card">
+                    <h3>Recent Searches</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Query</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="searches-table">
+                            <!-- JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-card">
+                    <h3>Recent Interactions</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Action</th>
+                                <th>Movie</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="interactions-table">
+                            <!-- JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/backend.js"></script>
+</body>
+
+</html>

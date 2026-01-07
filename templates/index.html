@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone RecSys</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">NETFLIX <span style="font-size: 0.5em; color: #aaa;">RecSys Demo</span></div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search titles, genres...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="user-menu">
+            <span id="welcome-msg" style="color: #fff; margin-right: 15px;"></span>
+            <button id="logout-btn" class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.8em;">Sign
+                Out</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 id="hero-title">Loading...</h1>
+                <p id="hero-desc">...</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary"><i class="fas fa-play"></i> Play</button>
+                    <button class="btn btn-secondary"><i class="fas fa-info-circle"></i> More Info</button>
+                </div>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <!-- Genre Results (Hidden by default) -->
+        <section id="genre-view" class="row" style="display: none;">
+            <div class="row-header">
+                <h2 id="genre-title">Results</h2>
+                <button id="close-genre-btn" class="icon-btn"
+                    style="background:transparent; border:1px solid white;">&times; Close</button>
+            </div>
+            <div class="row-content grid-layout" id="genre-list"></div>
+        </section>
+
+        <!-- Original Sections -->
+        <div id="dashboard-view">
+            <section class="row">
+                <h2>Your Top Interests</h2>
+                <div id="interests-list" class="interests-tags">
+                    <!-- Tags injected by JS -->
+                </div>
+            </section>
+
+            <section class="row">
+                <h2>Recommended for You</h2>
+                <div class="row-content" id="recommendations-list">
+                    <!-- Movies injected by JS -->
+                </div>
+            </section>
+
+            <section class="row">
+                <h2>Trending Now (Top Rated)</h2>
+                <div class="row-content" id="trending-list">
+                    <!-- Movies injected by JS -->
+                </div>
+            </section>
+
+            <section class="row">
+                <h2>Watch History</h2>
+                <div class="row-content" id="history-list">
+                    <!-- Movies injected by JS -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Movie Details Modal -->
+        <div id="movie-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-body">
+                    <div class="modal-img-container">
+                        <img id="modal-img" src="" alt="Movie Poster">
+                        <div class="modal-actions">
+                            <button id="modal-play-btn" class="btn btn-primary"><i class="fas fa-play"></i>
+                                Play</button>
+                            <button id="modal-like-btn" class="btn btn-secondary"><i class="fas fa-thumbs-up"></i>
+                                Like</button>
+                        </div>
+                    </div>
+                    <div class="modal-info">
+                        <h2 id="modal-title">Movie Title</h2>
+                        <div class="modal-meta">
+                            <span id="modal-year">2020</span>
+                            <span id="modal-rating">PG-13</span>
+                            <span id="modal-genre" class="modal-genre-tag">Action</span>
+                        </div>
+                        <p id="modal-desc">Description goes here...</p>
+                        <div class="modal-cast">
+                            <h3>Cast</h3>
+                            <p id="modal-cast-list">Cast info not available.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

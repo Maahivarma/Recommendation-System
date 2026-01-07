@@ -1,0 +1,492 @@
+/* Netflix Clone Premium Styles - Refactored */
+:root {
+    --primary: #e50914;
+    --dark: #141414;
+    --light: #e5e5e5;
+    --gray: #808080;
+    --card-width: 250px;
+    --card-height: 375px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 4%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 5px;
+    outline: none;
+    width: 200px;
+}
+
+.search-bar button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    /* Massive cinematic feel */
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    align-items: center;
+    padding-left: 4%;
+    margin-bottom: -120px;
+    /* pull rows up */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--dark) 0%, transparent 60%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 10;
+    max-width: 45%;
+    margin-top: 10vh;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.hero-buttons .btn {
+    padding: 0.8rem 2.2rem;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: white;
+    color: black;
+}
+
+.btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-secondary {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(109, 109, 110, 0.4);
+}
+
+/* Rows & Content */
+#dashboard-view {
+    position: relative;
+    z-index: 20;
+    padding-top: 20px;
+}
+
+.row {
+    position: relative;
+    padding-left: 4%;
+    margin: 3vw 0;
+}
+
+.row h2,
+.row-header h2 {
+    font-size: 1.5vw;
+    color: #e5e5e5;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.row h2:hover {
+    color: white;
+}
+
+.row-content {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0 50px 0;
+    /* Extra bottom padding for hover scale */
+    scroll-behavior: smooth;
+    margin-left: -5px;
+    /* Offset for hover padding */
+}
+
+.row-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Movie Cards */
+.movie-card {
+    flex: 0 0 auto;
+    width: 220px;
+    height: 330px;
+    /* 2:3 Aspect Ratio */
+    margin-right: 8px;
+    border-radius: 4px;
+    background-color: #2f2f2f;
+    position: relative;
+    transition: transform 0.3s ease, z-index 0s;
+    cursor: pointer;
+    transform-origin: center center;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.movie-card:hover {
+    transform: scale(1.3);
+    z-index: 100;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+    transition-delay: 0.1s;
+}
+
+.movie-card:hover img {
+    border-radius: 4px 4px 0 0;
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    background: #181818;
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    pointer-events: none;
+    /* Let clicks pass through generally, button specific pointer-events auto */
+}
+
+.movie-card:hover .card-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.card-title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.card-meta {
+    font-size: 0.65rem;
+    color: #999;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.icon-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: #2a2a2a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.icon-btn:hover {
+    border-color: white;
+    background: white;
+    color: black;
+}
+
+/* Interests Tags */
+.interests-tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tag {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid gray;
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 0 !important;
+    /* Netflix style tags usually simpler */
+    color: white !important;
+    /* Force override manual styles */
+    letter-spacing: 0.5px;
+}
+
+.tag:hover {
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.4s;
+}
+
+.modal-content {
+    background-color: #181818;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 850px;
+    border-radius: 6px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.4s;
+}
+
+.modal-body {
+    display: flex;
+    align-items: stretch;
+    height: 500px;
+}
+
+.modal-img-container {
+    flex: 1.5;
+    position: relative;
+}
+
+.modal-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-img-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #181818 0%, transparent 40%);
+}
+
+.modal-actions {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.modal-info {
+    flex: 2;
+    padding: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.modal-info h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    line-height: 1;
+}
+
+.modal-meta {
+    font-size: 1.1rem;
+    color: #bcbcbc;
+    margin: 15px 0;
+}
+
+.modal-meta span {
+    margin-right: 15px;
+}
+
+.modal-genre-tag {
+    border: 1px solid #bcbcbc;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.modal-desc {
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #fff;
+    flex-grow: 1;
+}
+
+.modal-cast {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #181818;
+    background: white;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2010;
+}
+
+/* Genre Grid */
+#genre-view {
+    padding-top: 100px;
+    padding-left: 4%;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2vw;
+    padding-bottom: 50px;
+}
+
+.grid-layout .movie-card {
+    width: 100%;
+    height: 15vw;
+    /* ratio */
+    min-height: 300px;
+    margin: 0;
+}
+
+/* Disable hover pop for grid to avoid mess */
+.grid-layout .movie-card:hover {
+    transform: scale(1.05);
+    z-index: 50;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
