@@ -121,3 +121,10 @@ Backend service and API layer of the recommendation system.
 Personalized recommendations generated based on user behavior.
 
 ![User Interaction](screenshots/user_interaction.png)
+
+## 🎥 Demo Flow
+
+1. Open the application in the browser  
+2. Enter a User ID in the input field  
+3. The system analyzes user behavior  
+4. Personalized recommendations are displayed in real time
