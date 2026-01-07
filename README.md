@@ -94,4 +94,30 @@ The project is implemented as a **real, end-to-end web application** with a back
 ---
 
 ## 🔁 System Architecture
+## 🖼️ Screenshots
 
+### 🔹 Dashboard Overview
+Main dashboard showing system metrics and overview.
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+### 🔹 Frontend User Interface
+User-facing screen where User ID is entered to get personalized recommendations.
+
+![Frontend UI](screenshots/frontend_ui.png)
+
+---
+
+### 🔹 Backend & API Dashboard
+Backend service and API layer of the recommendation system.
+
+![Backend Page](screenshots/backend_page.png)
+
+---
+
+### 🔹 User Interaction & Recommendations
+Personalized recommendations generated based on user behavior.
+
+![User Interaction](screenshots/user_interaction.png)
